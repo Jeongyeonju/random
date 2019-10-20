@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Snow Flakes</title>
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700,900&display=swap" rel="stylesheet">
+<style type="text/css">
+	html{font-family: 'Noto Sans KR', sans-serif;}
+	body { background: none; margin: 0; padding: 0; height:2000px; }
+	header {background: none; height: 300px;}
+	header h1 {opacity: 0.7;}
+	footer {background: none; height: 200px;}
+	footer p {font-size: 15px; left: 580px; top: 150px; text-align: center; color: #888;}
+	h1 {position: absolute; font-weight: 900; left: 610px; top: 80px; font-size: 45px;}
+	h2 {font-size: 50px; font-weight: 900; line-height: 1.3; position: absolute; }
+	p {font-size: 20px; font-weight: 700; line-height: 1.6; word-spacing: 0px; letter-spacing: -1px; position: absolute; text-align: justify;}
+	.foot {margin: auto; position: relative;}
+	#wrap {height: 2000px; background:none;}
+
+				.Snowflake{
+			width:50px; height:500px; 
+			/* 1. 풍선 배경 파일지정을 스크립트에서 하기위해 일단 CSS에서 삭제 */
+			/* background:url('snow_1.gif'); */
+			/* background-size:100% auto; */
+			background-repeat:no-repeat;
+			animation: bMove 8s linear;
+		}
+
+		.Snowflake:hover {width: 100px; animation: none;}
+
+		@keyframes bMove{
+			0%{ background-position: 0 0; opacity:0;}
+			20%{opacity:1;}
+			80%{ opacity:1; }
+			100%{ background-position:0 2000px; opacity:0;}
+		}
+		.rain {width: 10px; height: 100px; background: rgb(255,0,255); position: absolute; animation: rr 1s  infinite ease-in;}
+
+		@keyframes rr{
+			from{bottom: 1000px; opacity: 1;}
+			to{bottom: -1500px; opacity: 0.3;}
+		}
+
+
+		@keyframes left{
+			from{left: 1300px;}
+			to {left: -500px;}
+		}
+
+		@keyframes left2{
+			from{left: 1600px;}
+			to {left: -200px;}
+		}
+
+		@keyframes top{
+		from{top: 500px; opacity: 0;}
+		to{top: 200px; opacity: 1;}
+	}
+
+
+		@keyframes top2{
+		from{top: 500px; opacity: 0;}
+		to{top: 300px; opacity: 1;}
+	}
+			@keyframes dong{
+			from{left: 1600px; opacity: 0;}
+			to{left: 1100px; opacity: 1;}
+		}
+
+		@keyframes dong2{
+			from{left: 1600px; opacity: 0;}
+			to{left: 200px; opacity: 1;}
+		}
+
+		@keyframes right{
+			from{left: 50px;}
+			to {left: 1000px;}
+		}
+
+		@keyframes top4{
+			from{top: 600px; opacity: 0;}
+			to{top: 400px; opacity: 1;}
+		}
+
+		#p4 {width: 500px; left: 1000px; font-size: 40px; position: absolute; top: 370px;}
+		#p5 {width: 500px; left: 200px; font-size: 40px; position: absolute; top: 900px;}
+		#p6 {width: 500px; left: 600px; font-size: 50px; position: absolute; top: 1500px;}
+		#p7 {width: 1000px; left: 380px; font-size: 50px; position: absolute; top: 2180px;}
+	</style>
+</head>
+
+<body>
+	<section id="sec01">
+<div class="rain" id="tt"></div>
+</section>
+<script>
+for(var i=0; i<150; i++){
+			var b = tt.cloneNode(true);
+			b.id = i;
+			b.style.left = Math.random()* window.innerWidth+ "px";
+			b.style.animationDuration = Math.random() + "s";
+			b.style.height = Math.random()*100 + "px";
+			b.style.background = makeColor();
+			b.style.animationDelay = 0.1*i + "s";
+			document.body.appendChild(b);
+}
+
+	// rgb(255,0,255) 이런 텍스트를 돌려주는 함수를 만들자.
+	function makeColor(){
+		var rr = Math.random()*0;
+		var gg = Math.random()*500;
+		var bb = Math.random()*5000;
+		var tt = "rgb(" + rr + "," + gg + "," + bb + ")";
+		return tt;
+	}
+</script>
+
+
+	<header>
+		<div class="foot">
+<h1>Snow Flakes</h1>
+	</div>
+	</header>
+
+
+	<section id="sec04">
+		<div class="wrap">
+			<p id="p4" style="opacity: 0; animation: top2 1s forwards;">Hello I'm Snowman<br>I love snow flakes!</p>
+		<img src="snowman.gif" id="image1" style="position: absolute;width: 500px; left: 50px; top: 200px; opacity:0; animation: top 1s infinite alternate;">
+	</div>
+</section>
+	<section id="sec05">
+			<div class="wrap">
+				<p id="p5">Hello We are Trees!<br>We love snow flakes, too!</p>
+		<img src="tree.gif" id="image2" style="position: absolute; width: 400px; left: 1100px; opacity: 1; top: 800px; animation: dong 1s infinite alternate;">
+		<img src="leaf.gif" id="image3" style="position: absolute; width: 100px; left: 1100px; opacity: 1; top: 1100px; animation: dong2 1s infinite alternate;">
+	</div>
+</section>
+	<section id="sec06">
+		<div class="wrap">
+			<p id="p6">Hello I'm Gift<br>Everyone loves me!</p>
+	<img src="gift.gif" id="image6" style="position: absolute; width: 600px; left: 50px; opacity: 1; top: 1300px; animation: right 2s infinite alternate;">
+</div>
+</section>
+	<section id="sec07">
+		<div class="wrap">
+			<p id="p7">We wish you a Merry Christmas</p>
+		<img src="dolf.gif" id="image7" style="position: absolute; width: 300px; left: 1200px; opacity: 1; top: 2100px; animation: left 3s infinite linear;">
+		<img src="e.t.gif" id="image5" style="position: absolute; width: 300px; left: 1200px; opacity: 1; top: 2100px; animation: left2 3s infinite linear;">
+	</div>
+	</section>
+
+
+<div id="wrap"></div>
+
+
+<footer>
+		<div class="foot">
+			<p>Copyright&copy; 2019 Yeon Ju Jeong. All rights reserved.</p>
+		</div>
+	</footer>
+
+
+
+<script type="text/javascript">
+	setInterval(attachSnowflake,100);
+	//1. setInterval함수는 특정한 함수를 지정된 시간마다 실행한다. 따라서 attachSnowflake을 1000밀리세컨드(1초)마다 실행시킨다.
+
+	function attachSnowflake(){
+		var t = document.createElement("div");
+		t.setAttribute("class","Snowflake"); 
+		t.style.position = "absolute"; 
+		//1. 풍선의 배경 파일을 스크립트로 넣어주자 파일이름을 앞뒤로 나누고 사이에 랜덤값으로 1에서 4 사이의 값을 넣어주자
+		t.style.background = "url('snow_" + randomBH(1,4) + ".gif') no-repeat";
+		//2. 풍선의 이미지 사이즈 지정
+		t.style.backgroundSize = "100% auto";
+		b.style.animationDuration = Math.random() + "s";
+		t.style.top = Math.random()* window.innerHeight+ "px";
+		t.style.left = Math.random()* window.innerWidth+ "px";
+		b.style.animationDelay = 0.1*i + "s";
+		t.addEventListener("animationend",remove);
+		document.body.appendChild(t);		
+	}
+	
+	//3. 지워주기 함수(이건 그냥 복붙 )	
+	function remove(){
+		var t = event.target; //이벤트의 타겟을 t로 지정하고.
+		t.parentNode.removeChild(t); //그 엄마를 찾아서 자식중에 t를 지워라. 
+	}
+
+	//최소값과 최대값 사이의 임의의 숫자를 리턴하는 함수
+	function randomBH(min, max) {
+  		min = Math.ceil(min);
+  		max = Math.floor(max);
+  		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+</script>
+
+
+</body>
+</html>
